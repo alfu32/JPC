@@ -1,7 +1,7 @@
 # JPC
 The fast x86 PC emulator in 100% pure Java
 -----
-JPC is a fast modern x86 PC emulator capable of booting Windows up to Windows 95 (and windows 98 in safe mode) and some graphical linuxes. It has a full featured graphical debugger with time travel mode along with standard features like break and watch points. 
+JPC is a fast modern x86 PC emulator capable of booting Windows up to Windows 95 (and windows 98 in safe mode) and some graphical linuxes. It has a full featured graphical debugger with time travel mode along with standard features like break and watch points.
 
 ### Running
 To get started with JPC just run it with:<br>
@@ -17,7 +17,7 @@ To build the debugger run:<br>
 make debugger
 
 To run some dos games easily, put them in a directory on your real computer and use JPC's ability to view a directory tree as a virtual FAT32 drive. For example, if some games are in "dosgames" in the directory where you expanded all the JPC files then type:<br/>
-	java -jar JPCApplication.jar -boot fda -fda resources/images/floppy.img -hda dir:dosgames<br/>
+java -jar JPCApplication.jar -boot fda -fda resources/images/floppy.img -hda dir:dosgames<br/>
 This won't save any writes you make to the virtual FAT32 drive. If you would like to sync write to the underlying files, run with -hda dir:sync:dosgames<br/>
 
 ### Debugger
