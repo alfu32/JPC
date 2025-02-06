@@ -18,4 +18,4 @@ plugins {
 
 rootProject.name = "JPCT"
 include("debugger", "emulator", "j2se","support")
-include("debugger-lib")
+include("emulator-lib")

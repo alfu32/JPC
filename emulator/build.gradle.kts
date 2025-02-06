@@ -16,28 +16,28 @@ application {
 }
 
 dependencies {
-    implementation(project(":debugger-lib"))
+    implementation(project(":emulator-lib"))
 }
 
-// Add debugger-lib's resources to this JAR
+// Add emulator-lib's resources to this JAR
 tasks.jar {
     manifest {
         attributes["Main-Class"] = application.mainClass.get()
     }
-    // Make sure the debugger-lib is compiled first
-    dependsOn(":debugger-lib:classes")
+    // Make sure the emulator-lib is compiled first
+    dependsOn(":emulator-lib:classes")
 
-    // Merge debugger-lib's classes into emulator.jar
-    from(project(":debugger-lib").the<JavaPluginExtension>().sourceSets["main"].output)
+    // Merge emulator-lib's classes into emulator.jar
+    from(project(":emulator-lib").the<JavaPluginExtension>().sourceSets["main"].output)
 
-    // Make sure debugger-lib has processed its resources first
-    dependsOn(":debugger-lib:processResources")
+    // Make sure emulator-lib has processed its resources first
+    dependsOn(":emulator-lib:processResources")
 
-    // Copy the output of debugger-lib's main resources into our jar.
+    // Copy the output of emulator-lib's main resources into our jar.
     // By default, Gradle places those processed resources under build/resources/main.
-    from("${project(":debugger-lib").buildDir}/resources/main") {
-        // If you want them in a subfolder inside the JAR, say "debugger-lib/", do:
-        // into("debugger-lib")
+    from("${project(":emulator-lib").buildDir}/resources/main") {
+        // If you want them in a subfolder inside the JAR, say "emulator-lib/", do:
+        // into("emulator-lib")
         include("**/*")
         // Put them under a folder named "resources" in the jar:
         into("resources")
